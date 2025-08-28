@@ -8,12 +8,10 @@ def main(page: ft.Page):
     page.window_maximized = True
     page.padding = 20
 
-    # Инициализация базы
     init_db()
 
     task_list = ft.Column(spacing=10)
 
-    # ----------------- Функции -----------------
     def load_tasks():
         task_list.controls.clear()
         for task_id, task_text, completed in get_tasks():
@@ -70,7 +68,6 @@ def main(page: ft.Page):
         update_task_db(task_id, completed=is_completed)
         load_tasks()
 
-    # ----------------- UI -----------------
     task_input = ft.TextField(
         hint_text="Введите товар",
         expand=True,
